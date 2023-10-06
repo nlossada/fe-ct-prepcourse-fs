@@ -126,7 +126,6 @@ function cuentoElementos(array) {
    // Tu código:
    const arrFiltrado = array.filter((num) => num > 18);
    return arrFiltrado.length
-
 }
 
 function diaDeLaSemana(numeroDeDia) {
@@ -172,27 +171,24 @@ function mesesDelAño(array) {
    // Tu código:
 
    const newArray = [];
-   const incluEne = array.includes("Enero");
-   const incluMar = array.includes("Marzo");
-   const incluNov = array.includes("Noviembre");
-
-   if (incluEne && incluMar && incluNov) {
-      newArray.push("Enero");
-      newArray.push("Marzo");
-      newArray.push("Noviembre");
-      return newArray
+   for (let i = 0; i < array.length; i++) {
+      if (array[i].toLowerCase() === "enero" || array[i].toLowerCase() === "marzo" || array[i].toLowerCase() === "noviembre") {
+         newArray.push(array[i]);
+      }
+   } if (newArray.length === 3) {
+      return newArray;
    } else {
       return "No se encontraron los meses pedidos"
    }
-
 }
+// console.log(mesesDelAño(["marzo", "enero", "junio", "julio", "noviembre"]));
 
 function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
    const newArray = []
-   for (let i = 1; i <= 10; i++) {
+   for (let i = 0; i <= 10; i++) {
       newArray.push((6 * i));
    } return newArray;
 }
@@ -216,7 +212,22 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   const arrMasDos = [];
+   let condBreak = false
+   for (i = 0; i < 10; i++) {
+      num = num + 2
+      arrMasDos.push(num);
+      if (num === i) {
+         condBreak = true
+         break;
+      }
+   } if (condBreak === true) {
+      return "Se interrumpió la ejecución"
+   } else {
+      return arrMasDos;
+   }
 }
+// 
 
 function continueStatement(num) {
    // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
@@ -225,7 +236,17 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   const arrMasDos = [];
+   for (i = 0; i < 10; i++) {
+      if (i === 5) {
+         continue;
+      } else {
+         num = num + 2
+         arrMasDos.push(num);
+      }
+   } return arrMasDos;
 }
+// console.log(continueStatement(50));
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
 module.exports = {
